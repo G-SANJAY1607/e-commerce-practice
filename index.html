@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f2ea">
+  <title>Morrow Goods</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f5f2ea;
+      --ink: #252b25;
+      --muted: #77796f;
+      --line: #d9d8ce;
+      --green: #315c48;
+      --lime: #dce8ad;
+      --orange: #e77954;
+      --white: #fffefa;
+      font-family: 'DM Sans', sans-serif;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); }
+    button, input, textarea { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    .site-header {
+      height: 78px;
+      padding: 0 clamp(20px, 6vw, 88px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+      background: rgba(245, 242, 234, .96);
+      position: sticky;
+      top: 0;
+      z-index: 5;
+    }
+
+    .wordmark {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .wordmark-mark {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      color: var(--paper);
+      background: var(--green);
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 19px;
+      font-weight: 500;
+    }
+
+    .primary-nav { display: flex; align-items: center; gap: clamp(18px, 3.2vw, 46px); }
+    .nav-link {
+      position: relative;
+      padding: 8px 0;
+      border: 0;
+      background: none;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .nav-link::after {
+      position: absolute;
+      right: 0;
+      bottom: 2px;
+      left: 0;
+      height: 2px;
+      background: var(--orange);
+      content: '';
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .2s ease;
+    }
+    .nav-link:hover, .nav-link[aria-current="page"] { color: var(--ink); }
+    .nav-link[aria-current="page"]::after { transform: scaleX(1); }
+
+    main { min-height: calc(100vh - 78px); }
+    .view { display: none; min-height: calc(100vh - 78px); animation: enter .35s ease both; }
+    .view.is-active { display: block; }
+    @keyframes enter { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
+
+    .home-view { padding: clamp(32px, 5vw, 70px) clamp(20px, 8vw, 116px); }
+    .hero {
+      min-height: min(690px, calc(100vh - 150px));
+      display: grid;
+      grid-template-columns: 1fr .9fr;
+      overflow: hidden;
+      background: var(--lime);
+    }
+    .hero-copy {
+      align-self: center;
+      padding: clamp(36px, 7vw, 96px);
+      animation: enter .55s .05s ease both;
+    }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 24px;
+      color: var(--green);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { width: 24px; height: 1px; background: currentColor; content: ''; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2 { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; letter-spacing: 0; }
+    h1 { max-width: 540px; margin-bottom: 22px; font-size: clamp(44px, 5.8vw, 76px); line-height: 1.04; }
+    .hero-copy > p:not(.eyebrow) { max-width: 380px; margin-bottom: 30px; color: #50594a; font-size: 15px; line-height: 1.8; }
+    .solid-link {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      padding: 0 20px;
+      border: 1px solid var(--green);
+      background: var(--green);
+      color: white;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      transition: background .2s ease, color .2s ease;
+    }
+    .solid-link:hover { background: transparent; color: var(--green); }
+    .solid-link span { font-size: 18px; line-height: 0; }
+    .hero-image {
+      position: relative;
+      min-height: 440px;
+      background: #b9aa8f;
+      animation: enter .6s .12s ease both;
+    }
+    .hero-image img { position: absolute; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .image-note {
+      position: absolute;
+      right: 18px;
+      bottom: 18px;
+      padding: 10px 13px;
+      background: var(--white);
+      color: var(--ink);
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .dashboard-view, .contact-view { padding: clamp(34px, 6vw, 78px) clamp(20px, 8vw, 116px); }
+    .page-heading { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin-bottom: 36px; }
+    .page-heading .eyebrow { margin-bottom: 12px; }
+    .page-heading h2 { margin-bottom: 0; font-size: clamp(36px, 4vw, 52px); }
+    .date-label { margin: 0 0 7px; color: var(--muted); font-size: 12px; }
+    .metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .metric { min-height: 142px; padding: 24px 22px 22px 0; }
+    .metric + .metric { padding-left: 22px; border-left: 1px solid var(--line); }
+    .metric-label { display: block; margin-bottom: 15px; color: var(--muted); font-size: 12px; }
+    .metric-value { display: block; margin-bottom: 8px; font-size: clamp(22px, 2.5vw, 32px); font-weight: 600; letter-spacing: 0; }
+    .metric-change { color: var(--green); font-size: 11px; font-weight: 600; }
+    .dashboard-lower { display: grid; grid-template-columns: 1.3fr .7fr; gap: 48px; padding-top: 40px; }
+    .panel-title { display: flex; justify-content: space-between; align-items: center; gap: 20px; margin-bottom: 25px; }
+    .panel-title h3 { margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 23px; font-weight: 500; }
+    .panel-title span { color: var(--muted); font-size: 11px; }
+    .chart { height: 215px; display: flex; align-items: end; gap: clamp(8px, 2vw, 22px); padding: 8px 3px 0; border-bottom: 1px solid var(--line); }
+    .chart-column { flex: 1; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: end; gap: 10px; }
+    .chart-bar { width: min(100%, 38px); min-height: 8px; background: #9dbb8b; animation: grow .7s ease both; transform-origin: bottom; }
+    .chart-column:nth-child(2n) .chart-bar { background: #e9a282; }
+    .chart-column:last-child .chart-bar { background: var(--green); }
+    .chart-day { padding-bottom: 10px; color: var(--muted); font-size: 10px; }
+    @keyframes grow { from { transform: scaleY(.15); } to { transform: scaleY(1); } }
+    .order-list { list-style: none; margin: 0; padding: 0; }
+    .order { display: grid; grid-template-columns: 1fr auto; gap: 4px 10px; padding: 13px 0; border-bottom: 1px solid var(--line); }
+    .order-name { font-size: 12px; font-weight: 600; }
+    .order-price { font-size: 12px; font-weight: 600; }
+    .order-meta { color: var(--muted); font-size: 10px; }
+    .order-status { color: var(--green); font-size: 10px; text-align: right; }
+
+    .contact-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(34px, 9vw, 130px); align-items: start; }
+    .contact-copy h2 { max-width: 390px; margin-bottom: 18px; font-size: clamp(40px, 5vw, 62px); line-height: 1.08; }
+    .contact-copy > p:not(.eyebrow) { max-width: 330px; color: var(--muted); font-size: 14px; line-height: 1.8; }
+    .contact-detail { margin-top: 34px; }
+    .contact-detail span { display: block; margin-bottom: 7px; color: var(--muted); font-size: 11px; }
+    .contact-detail a { color: var(--green); font-size: 14px; font-weight: 600; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+    .contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 19px 18px; padding-top: 7px; }
+    .field { display: flex; flex-direction: column; gap: 8px; }
+    .field-wide { grid-column: 1 / -1; }
+    .field label { color: #55584f; font-size: 11px; font-weight: 600; }
+    .field input, .field textarea {
+      width: 100%;
+      border: 0;
+      border-bottom: 1px solid #b9b9ae;
+      border-radius: 0;
+      outline: 0;
+      padding: 11px 0;
+      background: transparent;
+      color: var(--ink);
+      font-size: 14px;
+    }
+    .field input:focus, .field textarea:focus { border-bottom-color: var(--green); }
+    .field textarea { min-height: 115px; resize: vertical; }
+    .form-actions { grid-column: 1 / -1; display: flex; align-items: center; gap: 15px; }
+    .form-status { margin: 0; color: var(--green); font-size: 12px; }
+
+    @media (max-width: 760px) {
+      .site-header { height: 68px; padding: 0 20px; }
+      .primary-nav { gap: 17px; }
+      .nav-link { font-size: 12px; }
+      main, .view { min-height: calc(100vh - 68px); }
+      .home-view { padding: 20px; }
+      .hero { min-height: auto; grid-template-columns: 1fr; }
+      .hero-copy { padding: 38px 28px 32px; }
+      h1 { max-width: 460px; font-size: clamp(43px, 11vw, 64px); }
+      .hero-image { min-height: 330px; }
+      .dashboard-view, .contact-view { padding: 38px 24px; }
+      .metrics { grid-template-columns: 1fr 1fr; }
+      .metric { min-height: 120px; padding: 19px 12px 16px 0; }
+      .metric + .metric { padding-left: 14px; }
+      .metric:nth-child(3) { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+      .metric:nth-child(4) { border-top: 1px solid var(--line); }
+      .dashboard-lower { grid-template-columns: 1fr; gap: 36px; padding-top: 32px; }
+      .contact-layout { grid-template-columns: 1fr; gap: 28px; }
+    }
+
+    @media (max-width: 420px) {
+      .site-header { padding: 0 14px; }
+      .wordmark { gap: 7px; font-size: 15px; }
+      .wordmark-mark { width: 27px; height: 27px; }
+      .primary-nav { gap: 12px; }
+      .nav-link { font-size: 11px; }
+      .page-heading { align-items: start; flex-direction: column; }
+      .date-label { margin-bottom: 0; }
+      .contact-form { grid-template-columns: 1fr; }
+      .field-wide, .form-actions { grid-column: auto; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="#home" aria-label="Morrow Goods home">
+      <span class="wordmark-mark" aria-hidden="true">m</span>
+      <span>Morrow Goods</span>
+    </a>
+    <nav class="primary-nav" aria-label="Main navigation">
+      <button class="nav-link" type="button" data-view="home" aria-current="page">Home</button>
+      <button class="nav-link" type="button" data-view="dashboard">Dashboard</button>
+      <button class="nav-link" type="button" data-view="contact">Contact Us</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="view home-view is-active" id="home" aria-labelledby="home-title">
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Thoughtful things, every day</p>
+          <h1 id="home-title">Make room for the good.</h1>
+          <p>Everyday objects, chosen with care. Find the pieces that make the ordinary feel a little more considered.</p>
+          <button class="solid-link" type="button" data-go="dashboard">Explore the dashboard <span aria-hidden="true">→</span></button>
+        </div>
+        <div class="hero-image">
+          <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=85" alt="Sunlit, thoughtfully furnished living room">
+          <span class="image-note">A slower kind of living</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="view dashboard-view" id="dashboard" aria-labelledby="dashboard-title" hidden>
+      <div class="page-heading">
+        <div>
+          <p class="eyebrow">Your store at a glance</p>
+          <h2 id="dashboard-title">Dashboard</h2>
+        </div>
+        <p class="date-label">Overview · This week</p>
+      </div>
+      <div class="metrics" aria-label="Store performance metrics">
+        <div class="metric"><span class="metric-label">Total sales</span><strong class="metric-value">$8,420</strong><span class="metric-change">↑ 12.8% this week</span></div>
+        <div class="metric"><span class="metric-label">Orders</span><strong class="metric-value">184</strong><span class="metric-change">↑ 8.2% this week</span></div>
+        <div class="metric"><span class="metric-label">Average order</span><strong class="metric-value">$45.76</strong><span class="metric-change">↑ 3.4% this week</span></div>
+        <div class="metric"><span class="metric-label">Returning customers</span><strong class="metric-value">32%</strong><span class="metric-change">↑ 5.1% this week</span></div>
+      </div>
+      <div class="dashboard-lower">
+        <section aria-labelledby="sales-title">
+          <div class="panel-title"><h3 id="sales-title">Sales this week</h3><span>Daily revenue</span></div>
+          <div class="chart" role="img" aria-label="Bar chart showing daily sales from Monday to Sunday, peaking on Sunday">
+            <div class="chart-column"><span class="chart-bar" style="height: 42%"></span><span class="chart-day">Mon</span></div>
+            <div class="chart-column"><span class="chart-bar" style="height: 58%"></span><span class="chart-day">Tue</span></div>
+            <div class="chart-column"><span class="chart-bar" style="height: 48%"></span><span class="chart-day">Wed</span></div>
+            <div class="chart-column"><span class="chart-bar" style="height: 72%"></span><span class="chart-day">Thu</span></div>
+            <div class="chart-column"><span class="chart-bar" style="height: 63%"></span><span class="chart-day">Fri</span></div>
+            <div class="chart-column"><span class="chart-bar" style="height: 88%"></span><span class="chart-day">Sat</span></div>
+            <div class="chart-column"><span class="chart-bar" style="height: 100%"></span><span class="chart-day">Sun</span></div>
+          </div>
+        </section>
+        <section aria-labelledby="orders-title">
+          <div class="panel-title"><h3 id="orders-title">Recent orders</h3><span>Latest 3</span></div>
+          <ul class="order-list">
+            <li class="order"><span class="order-name">Linen table set</span><span class="order-price">$86.00</span><span class="order-meta">#MG-2048 · 10 min ago</span><span class="order-status">Fulfilled</span></li>
+            <li class="order"><span class="order-name">Stoneware cup</span><span class="order-price">$32.00</span><span class="order-meta">#MG-2047 · 28 min ago</span><span class="order-status">Processing</span></li>
+            <li class="order"><span class="order-name">Woven market tote</span><span class="order-price">$48.00</span><span class="order-meta">#MG-2046 · 1 hour ago</span><span class="order-status">Fulfilled</span></li>
+          </ul>
+        </section>
+      </div>
+    </section>
+
+    <section class="view contact-view" id="contact" aria-labelledby="contact-title" hidden>
+      <div class="contact-layout">
+        <div class="contact-copy">
+          <p class="eyebrow">We’re here to help</p>
+          <h2 id="contact-title">Let’s talk about it.</h2>
+          <p>Questions about an order, a product, or anything else? Send us a note and our small team will get back to you.</p>
+          <div class="contact-detail"><span>Email us directly</span><a href="mailto:hello@morrowgoods.com">hello@morrowgoods.com</a></div>
+        </div>
+        <form class="contact-form" id="contact-form">
+          <div class="field"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field field-wide"><label for="subject">Subject</label><input id="subject" name="subject" required></div>
+          <div class="field field-wide"><label for="message">Your message</label><textarea id="message" name="message" required></textarea></div>
+          <div class="form-actions">
+            <button class="solid-link" type="submit">Send message <span aria-hidden="true">→</span></button>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const views = [...document.querySelectorAll('.view')];
+    const navigation = [...document.querySelectorAll('[data-view]')];
+
+    function showView(name) {
+      views.forEach((view) => {
+        const isActive = view.id === name;
+        view.hidden = !isActive;
+        view.classList.toggle('is-active', isActive);
+      });
+      navigation.forEach((link) => {
+        if (link.dataset.view === name) link.setAttribute('aria-current', 'page');
+        else link.removeAttribute('aria-current');
+      });
+      history.replaceState(null, '', `#${name}`);
+    }
+
+    navigation.forEach((link) => link.addEventListener('click', () => showView(link.dataset.view)));
+    document.querySelector('[data-go="dashboard"]').addEventListener('click', () => showView('dashboard'));
+    window.addEventListener('hashchange', () => {
+      const name = location.hash.slice(1);
+      if (views.some((view) => view.id === name)) showView(name);
+    });
+
+    const initialView = location.hash.slice(1);
+    if (views.some((view) => view.id === initialView)) showView(initialView);
+
+    document.querySelector('#contact-form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      document.querySelector('#form-status').textContent = 'Thanks for reaching out. We’ll be in touch soon.';
+      event.currentTarget.reset();
+    });
+  </script>
+</body>
+</html>
