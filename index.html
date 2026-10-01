@@ -164,6 +164,7 @@
     /* Gradient Text Utility */
     .gold-gradient-text {
       background: var(--accent-gradient);
+      background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       display: inline-block;
@@ -1848,14 +1849,8 @@
     }
 
     navigation.forEach((link) => link.addEventListener('click', () => showView(link.dataset.view)));
-<<<<<<< HEAD
     document.querySelectorAll('[data-go]').forEach((button) => {
       button.addEventListener('click', () => showView(button.dataset.go));
-    });
-=======
-    
-    document.querySelectorAll('[data-go]').forEach(btn => {
-      btn.addEventListener('click', () => showView(btn.dataset.go));
     });
 
     document.querySelectorAll('[data-view-link]').forEach(link => {
@@ -1864,8 +1859,6 @@
         showView(link.dataset.viewLink);
       });
     });
-
->>>>>>> 00f3bd3e7eedcfa3c2a203d44706f625d8634a7e
     window.addEventListener('hashchange', () => {
       const name = location.hash.slice(1);
       if (views.some((view) => view.id === name)) showView(name);
