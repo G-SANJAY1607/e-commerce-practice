@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en" data-theme="dark-gold">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,12 +8,15 @@
   <title>Morrow Goods — Heritage, Craftsmanship & Living</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
   <style>
     /* ==========================================================================
        THEME SYSTEM & VARIABLES
        ========================================================================== */
-    :root, [data-theme="dark-gold"] {
+    :root,
+    [data-theme="dark-gold"] {
       color-scheme: dark;
       --bg-main: #0a0c10;
       --bg-surface: #121620;
@@ -146,8 +150,14 @@
     /* ==========================================================================
        GLOBAL STYLES & RESET
        ========================================================================== */
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       background: var(--bg-main);
@@ -158,12 +168,23 @@
       overflow-x: hidden;
       transition: background-color 0.4s ease, color 0.4s ease;
     }
-    button, input, textarea, select { font: inherit; }
-    button, a { -webkit-tap-highlight-color: transparent; }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
 
     /* Gradient Text Utility */
     .gold-gradient-text {
       background: var(--accent-gradient);
+      background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       display: inline-block;
@@ -186,8 +207,15 @@
     }
 
     @keyframes floatPulse {
-      0% { transform: translateY(0) scale(1); opacity: 0.5; }
-      100% { transform: translateY(40px) scale(1.15); opacity: 0.75; }
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.5;
+      }
+
+      100% {
+        transform: translateY(40px) scale(1.15);
+        opacity: 0.75;
+      }
     }
 
     /* ==========================================================================
@@ -221,7 +249,10 @@
       text-transform: uppercase;
       transition: transform 0.2s ease;
     }
-    .wordmark:hover { transform: translateY(-1px); }
+
+    .wordmark:hover {
+      transform: translateY(-1px);
+    }
 
     .wordmark-mark {
       display: grid;
@@ -237,6 +268,7 @@
       box-shadow: var(--shadow-glow);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
     .wordmark:hover .wordmark-mark {
       transform: rotate(12deg) scale(1.05);
       box-shadow: 0 0 20px var(--accent-glow);
@@ -248,7 +280,12 @@
       gap: clamp(16px, 3vw, 40px);
     }
 
-    .primary-nav { display: flex; align-items: center; gap: clamp(12px, 2vw, 32px); }
+    .primary-nav {
+      display: flex;
+      align-items: center;
+      gap: clamp(12px, 2vw, 32px);
+    }
+
     .nav-link {
       position: relative;
       padding: 10px 4px;
@@ -261,6 +298,7 @@
       letter-spacing: 0.5px;
       transition: color 0.25s ease;
     }
+
     .nav-link::after {
       position: absolute;
       right: 0;
@@ -275,11 +313,16 @@
       border-radius: 2px;
       box-shadow: 0 0 8px var(--accent-glow);
     }
-    .nav-link:hover { color: var(--text-main); }
+
+    .nav-link:hover {
+      color: var(--text-main);
+    }
+
     .nav-link[aria-current="page"] {
       color: var(--accent-gold-light);
       font-weight: 700;
     }
+
     .nav-link[aria-current="page"]::after {
       transform: scaleX(1);
       transform-origin: left;
@@ -296,6 +339,7 @@
       border-radius: 30px;
       backdrop-filter: blur(10px);
     }
+
     .theme-dot {
       width: 24px;
       height: 24px;
@@ -309,18 +353,34 @@
       transition: all 0.25s ease;
       position: relative;
     }
+
     .theme-dot::before {
       content: '';
       width: 14px;
       height: 14px;
       border-radius: 50%;
     }
-    .theme-dot[data-theme-btn="dark-gold"]::before { background: linear-gradient(135deg, #f5e396, #d4af37); }
-    .theme-dot[data-theme-btn="neon-midnight"]::before { background: linear-gradient(135deg, #00f2fe, #6b11ff); }
-    .theme-dot[data-theme-btn="cyber-emerald"]::before { background: linear-gradient(135deg, #a7f3d0, #34d399); }
-    .theme-dot[data-theme-btn="sunset-coral"]::before { background: linear-gradient(135deg, #f472b6, #fb923c); }
 
-    .theme-dot:hover { transform: scale(1.15); }
+    .theme-dot[data-theme-btn="dark-gold"]::before {
+      background: linear-gradient(135deg, #f5e396, #d4af37);
+    }
+
+    .theme-dot[data-theme-btn="neon-midnight"]::before {
+      background: linear-gradient(135deg, #00f2fe, #6b11ff);
+    }
+
+    .theme-dot[data-theme-btn="cyber-emerald"]::before {
+      background: linear-gradient(135deg, #a7f3d0, #34d399);
+    }
+
+    .theme-dot[data-theme-btn="sunset-coral"]::before {
+      background: linear-gradient(135deg, #f472b6, #fb923c);
+    }
+
+    .theme-dot:hover {
+      transform: scale(1.15);
+    }
+
     .theme-dot.is-active {
       border-color: var(--accent-gold);
       box-shadow: 0 0 10px var(--accent-glow);
@@ -329,17 +389,31 @@
     /* ==========================================================================
        MAIN VIEWS & TRANSITIONS
        ========================================================================== */
-    main { position: relative; min-height: calc(100vh - 80px); }
+    main {
+      position: relative;
+      min-height: calc(100vh - 80px);
+    }
+
     .view {
       display: none;
       min-height: calc(100vh - 80px);
       animation: luxuryEnter 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
     }
-    .view.is-active { display: block; }
+
+    .view.is-active {
+      display: block;
+    }
 
     @keyframes luxuryEnter {
-      from { opacity: 0; transform: translateY(14px) scale(0.995); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
+      from {
+        opacity: 0;
+        transform: translateY(14px) scale(0.995);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
     }
 
     /* ==========================================================================
@@ -377,6 +451,7 @@
       letter-spacing: 2.5px;
       text-transform: uppercase;
     }
+
     .eyebrow::before {
       width: 32px;
       height: 2px;
@@ -396,7 +471,7 @@
       color: var(--text-main);
     }
 
-    .hero-copy > p:not(.eyebrow) {
+    .hero-copy>p:not(.eyebrow) {
       max-width: 460px;
       margin-bottom: 38px;
       color: var(--text-muted);
@@ -440,19 +515,33 @@
     .solid-link::before {
       content: '';
       position: absolute;
-      top: 0; left: -100%; width: 100%; height: 100%;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
       background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
       transition: left 0.6s ease;
     }
-    .solid-link:hover::before { left: 100%; }
+
+    .solid-link:hover::before {
+      left: 100%;
+    }
 
     .solid-link:hover {
       transform: translateY(-2px);
       box-shadow: 0 15px 35px -5px var(--accent-glow);
       background: var(--accent-gradient-hover);
     }
-    .solid-link span { font-size: 18px; line-height: 0; transition: transform 0.25s ease; }
-    .solid-link:hover span { transform: translateX(4px); }
+
+    .solid-link span {
+      font-size: 18px;
+      line-height: 0;
+      transition: transform 0.25s ease;
+    }
+
+    .solid-link:hover span {
+      transform: translateX(4px);
+    }
 
     .outline-link {
       min-height: 54px;
@@ -474,6 +563,7 @@
       backdrop-filter: blur(10px);
       transition: all 0.3s ease;
     }
+
     .outline-link:hover {
       background: rgba(212, 175, 55, 0.12);
       border-color: var(--accent-gold);
@@ -493,6 +583,7 @@
       box-shadow: var(--shadow-card);
       transition: border-color 0.4s ease, transform 0.4s ease;
     }
+
     .hero-image-frame:hover {
       border-color: var(--glass-border-hover);
       transform: translateY(-3px);
@@ -513,7 +604,10 @@
       object-position: center;
       transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .hero-image-frame:hover img { transform: scale(1.03); }
+
+    .hero-image-frame:hover img {
+      transform: scale(1.03);
+    }
 
     .image-note {
       position: absolute;
@@ -533,6 +627,7 @@
       align-items: center;
       gap: 10px;
     }
+
     .image-note::before {
       content: '';
       width: 7px;
@@ -588,17 +683,20 @@
       backdrop-filter: var(--glass-backdrop);
       transition: all 0.3s ease;
     }
+
     .stat-card:hover {
       background: var(--bg-card-hover);
       border-color: var(--glass-border-hover);
       transform: translateY(-4px);
     }
+
     .stat-number {
       font-family: var(--font-serif);
       font-size: clamp(32px, 3vw, 46px);
       font-weight: 700;
       margin-bottom: 8px;
     }
+
     .stat-label {
       color: var(--text-muted);
       font-size: 12px;
@@ -611,16 +709,19 @@
     .pillars-section {
       margin-bottom: 70px;
     }
+
     .section-title-wrap {
       text-align: center;
       max-width: 600px;
       margin: 0 auto 50px;
     }
+
     .section-title-wrap h3 {
       font-family: var(--font-serif);
       font-size: clamp(30px, 3.5vw, 44px);
       margin-bottom: 14px;
     }
+
     .section-title-wrap p {
       color: var(--text-muted);
       font-size: 15px;
@@ -641,22 +742,26 @@
       box-shadow: var(--shadow-card);
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
     .pillar-card:hover {
       background: var(--bg-card-hover);
       border-color: var(--glass-border-hover);
       transform: translateY(-4px);
     }
+
     .pillar-icon {
       font-size: 28px;
       margin-bottom: 18px;
       display: inline-block;
     }
+
     .pillar-card h4 {
       margin: 0 0 12px;
       font-size: 17px;
       font-weight: 700;
       color: var(--text-main);
     }
+
     .pillar-card p {
       margin: 0;
       color: var(--text-muted);
@@ -676,6 +781,7 @@
       gap: 30px;
       text-align: center;
     }
+
     .press-quote {
       font-family: var(--font-serif);
       font-style: italic;
@@ -684,6 +790,7 @@
       color: var(--text-main);
       margin: 0 0 14px;
     }
+
     .press-source {
       color: var(--accent-gold);
       font-size: 11px;
@@ -695,7 +802,8 @@
     /* ==========================================================================
        DASHBOARD VIEW
        ========================================================================== */
-    .dashboard-view, .contact-view {
+    .dashboard-view,
+    .contact-view {
       padding: clamp(36px, 5vw, 70px) clamp(20px, 6vw, 90px);
     }
 
@@ -706,13 +814,18 @@
       gap: 20px;
       margin-bottom: 40px;
     }
-    .page-heading .eyebrow { margin-bottom: 10px; }
+
+    .page-heading .eyebrow {
+      margin-bottom: 10px;
+    }
+
     .page-heading h2 {
       margin-bottom: 0;
       font-family: var(--font-serif);
       font-size: clamp(36px, 4vw, 54px);
       color: var(--text-main);
     }
+
     .date-label {
       margin: 0;
       padding: 8px 16px;
@@ -743,20 +856,28 @@
       position: relative;
       overflow: hidden;
     }
+
     .metric::after {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0; height: 2px;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
       background: var(--accent-gradient);
       opacity: 0;
       transition: opacity 0.3s ease;
     }
+
     .metric:hover {
       background: var(--bg-card-hover);
       border-color: var(--glass-border-hover);
       transform: translateY(-3px);
     }
-    .metric:hover::after { opacity: 1; }
+
+    .metric:hover::after {
+      opacity: 1;
+    }
 
     .metric-label {
       display: block;
@@ -767,6 +888,7 @@
       text-transform: uppercase;
       letter-spacing: 1px;
     }
+
     .metric-value {
       display: block;
       margin-bottom: 10px;
@@ -776,6 +898,7 @@
       color: var(--text-main);
       letter-spacing: -0.5px;
     }
+
     .metric-change {
       display: inline-flex;
       align-items: center;
@@ -811,6 +934,7 @@
       gap: 20px;
       margin-bottom: 28px;
     }
+
     .panel-title h3 {
       margin: 0;
       font-family: var(--font-serif);
@@ -818,6 +942,7 @@
       font-weight: 600;
       color: var(--text-main);
     }
+
     .panel-title span {
       color: var(--text-subtle);
       font-size: 12px;
@@ -833,6 +958,7 @@
       padding: 10px 10px 0;
       border-bottom: 1px solid var(--border-line);
     }
+
     .chart-column {
       flex: 1;
       height: 100%;
@@ -842,6 +968,7 @@
       justify-content: flex-end;
       gap: 12px;
     }
+
     .chart-bar-container {
       width: 100%;
       max-width: 44px;
@@ -850,6 +977,7 @@
       align-items: flex-end;
       justify-content: center;
     }
+
     .chart-bar {
       width: 100%;
       min-height: 10px;
@@ -861,13 +989,21 @@
       transition: opacity 0.25s ease, filter 0.25s ease, transform 0.25s ease;
       box-shadow: 0 -4px 12px var(--accent-glow);
     }
+
     .chart-column:hover .chart-bar {
       opacity: 1;
       filter: brightness(1.2);
       transform: scaleY(1.02);
     }
-    .chart-column:nth-child(2n) .chart-bar { opacity: 0.6; }
-    .chart-column:last-child .chart-bar { opacity: 1; filter: drop-shadow(0 0 10px var(--accent-gold)); }
+
+    .chart-column:nth-child(2n) .chart-bar {
+      opacity: 0.6;
+    }
+
+    .chart-column:last-child .chart-bar {
+      opacity: 1;
+      filter: drop-shadow(0 0 10px var(--accent-gold));
+    }
 
     .chart-day {
       padding-bottom: 8px;
@@ -875,10 +1011,24 @@
       font-size: 11px;
       font-weight: 600;
     }
-    @keyframes grow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+
+    @keyframes grow {
+      from {
+        transform: scaleY(0);
+      }
+
+      to {
+        transform: scaleY(1);
+      }
+    }
 
     /* Recent Orders List */
-    .order-list { list-style: none; margin: 0; padding: 0; }
+    .order-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
     .order {
       display: grid;
       grid-template-columns: 1fr auto;
@@ -887,15 +1037,29 @@
       border-bottom: 1px solid var(--border-line);
       transition: background 0.2s ease;
     }
-    .order:last-child { border-bottom: 0; }
-    .order-name { font-size: 14px; font-weight: 600; color: var(--text-main); }
+
+    .order:last-child {
+      border-bottom: 0;
+    }
+
+    .order-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
     .order-price {
       font-size: 14px;
       font-weight: 700;
       color: var(--accent-gold-light);
       text-align: right;
     }
-    .order-meta { color: var(--text-subtle); font-size: 11px; }
+
+    .order-meta {
+      color: var(--text-subtle);
+      font-size: 11px;
+    }
+
     .order-status {
       font-size: 11px;
       font-weight: 600;
@@ -905,10 +1069,12 @@
       display: inline-block;
       justify-self: end;
     }
+
     .order-status.fulfilled {
       color: var(--status-success);
       background: var(--status-success-bg);
     }
+
     .order-status.processing {
       color: var(--status-pending);
       background: var(--status-pending-bg);
@@ -918,6 +1084,7 @@
     .services-view {
       padding: clamp(36px, 5vw, 70px) clamp(20px, 6vw, 90px);
     }
+
     .services-intro {
       max-width: 620px;
       margin: -18px 0 38px;
@@ -925,17 +1092,23 @@
       font-size: 15px;
       line-height: 1.8;
     }
+
     .services-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       border-top: 1px solid var(--glass-border);
       border-bottom: 1px solid var(--glass-border);
     }
-    .service-item { padding: 26px 28px 28px 0; }
-    .service-item + .service-item {
+
+    .service-item {
+      padding: 26px 28px 28px 0;
+    }
+
+    .service-item+.service-item {
       padding-left: 28px;
       border-left: 1px solid var(--border-line);
     }
+
     .service-number {
       display: block;
       margin-bottom: 22px;
@@ -944,6 +1117,7 @@
       font-size: 13px;
       letter-spacing: 1px;
     }
+
     .service-item h3 {
       margin-bottom: 12px;
       color: var(--text-main);
@@ -951,6 +1125,7 @@
       font-size: 21px;
       font-weight: 600;
     }
+
     .service-item p {
       max-width: 310px;
       margin-bottom: 0;
@@ -958,13 +1133,19 @@
       font-size: 13px;
       line-height: 1.8;
     }
+
     .services-cta {
       display: flex;
       align-items: center;
       gap: 20px;
       margin-top: 32px;
     }
-    .services-cta p { margin: 0; color: var(--text-muted); font-size: 13px; }
+
+    .services-cta p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
 
     /* ==========================================================================
        CONTACT VIEW & CONTACT CARDS
@@ -976,6 +1157,7 @@
       align-items: start;
       margin-bottom: 60px;
     }
+
     .contact-copy h2 {
       max-width: 440px;
       margin-bottom: 20px;
@@ -984,7 +1166,8 @@
       line-height: 1.08;
       color: var(--text-main);
     }
-    .contact-copy > p:not(.eyebrow) {
+
+    .contact-copy>p:not(.eyebrow) {
       max-width: 420px;
       color: var(--text-muted);
       font-size: 15px;
@@ -1007,11 +1190,13 @@
       backdrop-filter: var(--glass-backdrop);
       transition: all 0.3s ease;
     }
+
     .contact-card:hover {
       background: var(--bg-card-hover);
       border-color: var(--glass-border-hover);
       transform: translateY(-2px);
     }
+
     .contact-card-icon {
       width: 36px;
       height: 36px;
@@ -1025,6 +1210,7 @@
       margin-bottom: 14px;
       box-shadow: 0 4px 12px var(--accent-glow);
     }
+
     .contact-card h4 {
       margin: 0 0 6px;
       font-family: var(--font-sans);
@@ -1032,15 +1218,25 @@
       font-weight: 700;
       color: var(--text-main);
     }
-    .contact-card p, .contact-card a {
+
+    .contact-card p,
+    .contact-card a {
       margin: 0;
       color: var(--text-muted);
       font-size: 13px;
       line-height: 1.5;
       text-decoration: none;
     }
-    .contact-card a { color: var(--accent-gold); font-weight: 600; }
-    .contact-card a:hover { color: var(--accent-gold-light); text-decoration: underline; }
+
+    .contact-card a {
+      color: var(--accent-gold);
+      font-weight: 600;
+    }
+
+    .contact-card a:hover {
+      color: var(--accent-gold-light);
+      text-decoration: underline;
+    }
 
     /* Form Styles */
     .contact-form {
@@ -1054,15 +1250,27 @@
       backdrop-filter: var(--glass-backdrop);
       box-shadow: var(--shadow-card);
     }
-    .field { display: flex; flex-direction: column; gap: 8px; }
-    .field-wide { grid-column: 1 / -1; }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .field-wide {
+      grid-column: 1 / -1;
+    }
+
     .field label {
       color: var(--text-muted);
       font-size: 12px;
       font-weight: 600;
       letter-spacing: 0.5px;
     }
-    .field input, .field textarea, .field select {
+
+    .field input,
+    .field textarea,
+    .field select {
       width: 100%;
       border: 1px solid var(--border-line);
       border-radius: 10px;
@@ -1073,12 +1281,24 @@
       font-size: 14px;
       transition: border-color 0.3s ease, box-shadow 0.3s ease;
     }
-    .field select option { background: #121620; color: #fff; }
-    .field input:focus, .field textarea:focus, .field select:focus {
+
+    .field select option {
+      background: #121620;
+      color: #fff;
+    }
+
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
       border-color: var(--accent-gold);
       box-shadow: 0 0 12px var(--accent-glow);
     }
-    .field textarea { min-height: 120px; resize: vertical; }
+
+    .field textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
     .form-actions {
       grid-column: 1 / -1;
       display: flex;
@@ -1086,6 +1306,7 @@
       gap: 20px;
       margin-top: 10px;
     }
+
     .form-status {
       margin: 0;
       color: var(--status-success);
@@ -1099,17 +1320,20 @@
       padding-top: 40px;
       border-top: 1px solid var(--border-line);
     }
+
     .faq-title {
       font-family: var(--font-serif);
       font-size: 28px;
       margin-bottom: 24px;
       color: var(--text-main);
     }
+
     .faq-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 16px;
     }
+
     .faq-item {
       padding: 20px 24px;
       background: var(--bg-card);
@@ -1117,12 +1341,14 @@
       border-radius: 14px;
       backdrop-filter: var(--glass-backdrop);
     }
+
     .faq-item h5 {
       margin: 0 0 8px;
       font-size: 15px;
       font-weight: 600;
       color: var(--text-main);
     }
+
     .faq-item p {
       margin: 0;
       color: var(--text-muted);
@@ -1151,11 +1377,13 @@
       backdrop-filter: blur(16px);
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
     .floating-chat-trigger:hover {
       transform: translateY(-4px) scale(1.03);
       border-color: var(--glass-border-hover);
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 30px var(--accent-glow);
     }
+
     .chat-badge-icon {
       width: 12px;
       height: 12px;
@@ -1163,6 +1391,7 @@
       background: var(--status-success);
       box-shadow: 0 0 10px var(--status-success);
     }
+
     .chat-trigger-text {
       font-size: 13px;
       font-weight: 700;
@@ -1189,6 +1418,7 @@
       pointer-events: none;
       transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
     .chat-modal-window.is-open {
       opacity: 1;
       transform: translateY(0) scale(1);
@@ -1203,7 +1433,13 @@
       align-items: center;
       justify-content: space-between;
     }
-    .chat-header-info { display: flex; align-items: center; gap: 10px; }
+
+    .chat-header-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
     .chat-avatar {
       width: 32px;
       height: 32px;
@@ -1215,8 +1451,20 @@
       font-weight: 700;
       font-size: 14px;
     }
-    .chat-header-title { font-size: 14px; font-weight: 700; color: var(--text-main); margin: 0; }
-    .chat-header-subtitle { font-size: 11px; color: var(--status-success); margin: 0; }
+
+    .chat-header-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin: 0;
+    }
+
+    .chat-header-subtitle {
+      font-size: 11px;
+      color: var(--status-success);
+      margin: 0;
+    }
+
     .chat-close-btn {
       background: none;
       border: 0;
@@ -1226,7 +1474,10 @@
       padding: 4px;
       line-height: 1;
     }
-    .chat-close-btn:hover { color: var(--text-main); }
+
+    .chat-close-btn:hover {
+      color: var(--text-main);
+    }
 
     .chat-body {
       flex: 1;
@@ -1236,6 +1487,7 @@
       flex-direction: column;
       gap: 12px;
     }
+
     .chat-msg {
       max-width: 82%;
       padding: 12px 16px;
@@ -1243,12 +1495,14 @@
       font-size: 13px;
       line-height: 1.5;
     }
+
     .chat-msg.bot {
       background: rgba(255, 255, 255, 0.06);
       color: var(--text-main);
       align-self: flex-start;
       border-bottom-left-radius: 4px;
     }
+
     .chat-msg.user {
       background: var(--accent-gradient);
       color: #0a0c10;
@@ -1264,6 +1518,7 @@
       display: flex;
       gap: 8px;
     }
+
     .chat-input {
       flex: 1;
       border: 1px solid var(--border-line);
@@ -1274,7 +1529,11 @@
       font-size: 13px;
       outline: none;
     }
-    .chat-input:focus { border-color: var(--accent-gold); }
+
+    .chat-input:focus {
+      border-color: var(--accent-gold);
+    }
+
     .chat-send-btn {
       border: 0;
       border-radius: 50%;
@@ -1297,12 +1556,14 @@
       padding: 50px clamp(20px, 6vw, 90px) 30px;
       margin-top: 60px;
     }
+
     .footer-top {
       display: grid;
       grid-template-columns: 1.2fr repeat(3, 1fr);
       gap: 40px;
       margin-bottom: 40px;
     }
+
     .footer-brand p {
       color: var(--text-muted);
       font-size: 13px;
@@ -1310,6 +1571,7 @@
       max-width: 300px;
       margin-top: 14px;
     }
+
     .footer-col h5 {
       margin: 0 0 18px;
       font-size: 13px;
@@ -1318,15 +1580,28 @@
       text-transform: uppercase;
       color: var(--text-main);
     }
-    .footer-col ul { list-style: none; padding: 0; margin: 0; }
-    .footer-col li { margin-bottom: 10px; }
-    .footer-col a, .footer-col span {
+
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-col li {
+      margin-bottom: 10px;
+    }
+
+    .footer-col a,
+    .footer-col span {
       color: var(--text-muted);
       font-size: 13px;
       text-decoration: none;
       transition: color 0.2s ease;
     }
-    .footer-col a:hover { color: var(--accent-gold-light); }
+
+    .footer-col a:hover {
+      color: var(--accent-gold-light);
+    }
 
     .footer-bottom {
       padding-top: 24px;
@@ -1342,44 +1617,148 @@
        RESPONSIVE BREAKPOINTS
        ========================================================================== */
     @media (max-width: 900px) {
-      .hero { grid-template-columns: 1fr; }
-      .hero-image { min-height: 380px; }
-      .about-hero { grid-template-columns: 1fr; }
-      .about-stats { grid-template-columns: repeat(2, 1fr); }
-      .pillars-grid { grid-template-columns: repeat(2, 1fr); }
-      .press-banner { grid-template-columns: 1fr; gap: 20px; }
-      .metrics { grid-template-columns: 1fr 1fr; }
-      .dashboard-lower { grid-template-columns: 1fr; }
-      .contact-layout { grid-template-columns: 1fr; }
-      .services-grid { grid-template-columns: 1fr; }
-      .service-item, .service-item + .service-item { padding: 22px 0; }
-      .service-item + .service-item { border-left: 0; border-top: 1px solid var(--border-line); }
-      .contact-info-cards { grid-template-columns: 1fr; }
-      .faq-grid { grid-template-columns: 1fr; }
-      .footer-top { grid-template-columns: 1fr 1fr; }
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        min-height: 380px;
+      }
+
+      .about-hero {
+        grid-template-columns: 1fr;
+      }
+
+      .about-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .pillars-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .press-banner {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .metrics {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .dashboard-lower {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-item,
+      .service-item+.service-item {
+        padding: 22px 0;
+      }
+
+      .service-item+.service-item {
+        border-left: 0;
+        border-top: 1px solid var(--border-line);
+      }
+
+      .contact-info-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     @media (max-width: 600px) {
-      .site-header { height: 72px; padding: 0 16px; }
-      .wordmark { font-size: 15px; }
-      .wordmark-mark { width: 32px; height: 32px; font-size: 17px; }
-      .primary-nav { gap: 10px; }
-      .nav-link { font-size: 11px; padding: 8px 2px; }
-      .about-stats { grid-template-columns: 1fr; }
-      .pillars-grid { grid-template-columns: 1fr; }
-      .metrics { grid-template-columns: 1fr; }
-      .contact-form { grid-template-columns: 1fr; padding: 24px; }
-      .field-wide, .form-actions { grid-column: auto; }
-      .footer-top { grid-template-columns: 1fr; }
-      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
-      .chat-modal-window { width: calc(100vw - 32px); right: 16px; bottom: 85px; }
+      .site-header {
+        height: 72px;
+        padding: 0 16px;
+      }
+
+      .wordmark {
+        font-size: 15px;
+      }
+
+      .wordmark-mark {
+        width: 32px;
+        height: 32px;
+        font-size: 17px;
+      }
+
+      .primary-nav {
+        gap: 10px;
+      }
+
+      .nav-link {
+        font-size: 11px;
+        padding: 8px 2px;
+      }
+
+      .about-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .pillars-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-form {
+        grid-template-columns: 1fr;
+        padding: 24px;
+      }
+
+      .field-wide,
+      .form-actions {
+        grid-column: auto;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+      }
+
+      .chat-modal-window {
+        width: calc(100vw - 32px);
+        right: 16px;
+        bottom: 85px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
     }
   </style>
 </head>
+
 <body>
   <!-- Ambient background glow orb -->
   <div class="ambient-glow-orb" aria-hidden="true"></div>
@@ -1416,10 +1795,13 @@
         <div class="hero-copy">
           <p class="eyebrow">Exquisite Goods & Interiors</p>
           <h1 id="home-title">Make room for <span class="gold-gradient-text">the extraordinary.</span></h1>
-          <p>Curated everyday luxury. Handcrafted pieces and architectural essentials designed to elevate your living spaces.</p>
+          <p>Curated everyday luxury. Handcrafted pieces and architectural essentials designed to elevate your living
+            spaces.</p>
           <div class="hero-cta-group">
-            <button class="solid-link" type="button" data-go="dashboard">Explore Dashboard <span aria-hidden="true">→</span></button>
-            <button class="outline-link" type="button" data-go="about">Our Story <span aria-hidden="true">→</span></button>
+            <button class="solid-link" type="button" data-go="dashboard">Explore Dashboard <span
+                aria-hidden="true">→</span></button>
+            <button class="outline-link" type="button" data-go="about">Our Story <span
+                aria-hidden="true">→</span></button>
           </div>
         </div>
         <div class="hero-image-frame">
@@ -1436,14 +1818,19 @@
       <div class="about-hero">
         <div class="about-hero-copy">
           <p class="eyebrow">Heritage & Artisanship</p>
-          <h2 id="about-title">Crafting quiet luxury for <span class="gold-gradient-text">modern sanctuaries.</span></h2>
-          <p>Founded in 2012, Morrow Goods represents a movement toward deliberate living—curating objects born from traditional craftsmanship, architectural restraint, and enduring elegance.</p>
-          <p>Each stoneware vessel, woven linen, and sculpted bronze element is individually hand-finished in our partner ateliers across Kyoto, Milan, and Hudson Valley.</p>
-          <button class="solid-link" type="button" data-go="contact">Schedule Atelier Consultation <span aria-hidden="true">→</span></button>
+          <h2 id="about-title">Crafting quiet luxury for <span class="gold-gradient-text">modern sanctuaries.</span>
+          </h2>
+          <p>Founded in 2012, Morrow Goods represents a movement toward deliberate living—curating objects born from
+            traditional craftsmanship, architectural restraint, and enduring elegance.</p>
+          <p>Each stoneware vessel, woven linen, and sculpted bronze element is individually hand-finished in our
+            partner ateliers across Kyoto, Milan, and Hudson Valley.</p>
+          <button class="solid-link" type="button" data-go="contact">Schedule Atelier Consultation <span
+              aria-hidden="true">→</span></button>
         </div>
         <div class="hero-image-frame">
           <div class="hero-image">
-            <img src="./about_artisan_atelier.jpg" alt="Artisan ceramicist shaping pottery in moody luxury studio atelier">
+            <img src="./about_artisan_atelier.jpg"
+              alt="Artisan ceramicist shaping pottery in moody luxury studio atelier">
             <span class="image-note">Master Artisans at Work · Kyoto & Milan</span>
           </div>
         </div>
@@ -1481,7 +1868,8 @@
           <div class="pillar-card">
             <span class="pillar-icon">🏺</span>
             <h4>Artisanal Mastery</h4>
-            <p>Every piece celebrates traditional craftsmanship, crafted slowly by master ceramists and heritage glassblowers.</p>
+            <p>Every piece celebrates traditional craftsmanship, crafted slowly by master ceramists and heritage
+              glassblowers.</p>
           </div>
           <div class="pillar-card">
             <span class="pillar-icon">🏛️</span>
@@ -1496,7 +1884,8 @@
           <div class="pillar-card">
             <span class="pillar-icon">✨</span>
             <h4>Tailored Concierge</h4>
-            <p>Direct access to dedicated interior advisors for bespoke residential commissions and custom curations.</p>
+            <p>Direct access to dedicated interior advisors for bespoke residential commissions and custom curations.
+            </p>
           </div>
         </div>
       </div>
@@ -1504,15 +1893,18 @@
       <!-- Press Accolades -->
       <div class="press-banner">
         <div>
-          <p class="press-quote">"Morrow Goods redefines the modern sanctuary with quiet elegance and impeccable tactility."</p>
+          <p class="press-quote">"Morrow Goods redefines the modern sanctuary with quiet elegance and impeccable
+            tactility."</p>
           <span class="press-source">Architectural Digest</span>
         </div>
         <div>
-          <p class="press-quote">"A masterclass in modern luxury—crafted for those who value heritage and timeless design."</p>
+          <p class="press-quote">"A masterclass in modern luxury—crafted for those who value heritage and timeless
+            design."</p>
           <span class="press-source">Vogue Living</span>
         </div>
         <div>
-          <p class="press-quote">"The definitive destination for bespoke interior accents and artisan craftsmanship."</p>
+          <p class="press-quote">"The definitive destination for bespoke interior accents and artisan craftsmanship."
+          </p>
           <span class="press-source">Elle Decor</span>
         </div>
       </div>
@@ -1558,7 +1950,8 @@
             <h3 id="sales-title">Revenue Trajectory</h3>
             <span>Daily Revenue ($)</span>
           </div>
-          <div class="chart" role="img" aria-label="Bar chart showing daily sales from Monday to Sunday, peaking on Sunday">
+          <div class="chart" role="img"
+            aria-label="Bar chart showing daily sales from Monday to Sunday, peaking on Sunday">
             <div class="chart-column">
               <div class="chart-bar-container"><span class="chart-bar" style="height: 45%"></span></div>
               <span class="chart-day">Mon</span>
@@ -1661,7 +2054,8 @@
       </div>
       <div class="services-cta">
         <p>Have a project in mind?</p>
-        <button class="solid-link" type="button" data-go="contact">Talk to our team <span aria-hidden="true">→</span></button>
+        <button class="solid-link" type="button" data-go="contact">Talk to our team <span
+            aria-hidden="true">→</span></button>
       </div>
     </section>
 
@@ -1671,7 +2065,8 @@
         <div class="contact-copy">
           <p class="eyebrow">Personalized Concierge</p>
           <h2 id="contact-title">Let’s craft your experience.</h2>
-          <p>Have inquiries regarding bespoke interior consultations, corporate gifting, or order curation? Our dedicated luxury team is at your service.</p>
+          <p>Have inquiries regarding bespoke interior consultations, corporate gifting, or order curation? Our
+            dedicated luxury team is at your service.</p>
 
           <div class="contact-info-cards">
             <div class="contact-card">
@@ -1726,7 +2121,8 @@
           </div>
           <div class="field field-wide">
             <label for="message">Your Message</label>
-            <textarea id="message" name="message" placeholder="How can our concierge team assist you today?" required></textarea>
+            <textarea id="message" name="message" placeholder="How can our concierge team assist you today?"
+              required></textarea>
           </div>
           <div class="form-actions">
             <button class="solid-link" type="submit">Send Message <span aria-hidden="true">→</span></button>
@@ -1741,19 +2137,23 @@
         <div class="faq-grid">
           <div class="faq-item">
             <h5>Do you offer custom interior commissions?</h5>
-            <p>Yes, our design atelier accepts private commissions for custom stoneware, handcrafted furniture, and tailored linen collections.</p>
+            <p>Yes, our design atelier accepts private commissions for custom stoneware, handcrafted furniture, and
+              tailored linen collections.</p>
           </div>
           <div class="faq-item">
             <h5>What is your global shipping timeframe?</h5>
-            <p>Complimentary white-glove shipping is available globally. Delivery typically takes 2–4 business days with direct concierge tracking.</p>
+            <p>Complimentary white-glove shipping is available globally. Delivery typically takes 2–4 business days with
+              direct concierge tracking.</p>
           </div>
           <div class="faq-item">
             <h5>How can I schedule a private showroom visit?</h5>
-            <p>Select 'Bespoke Interior Consultation' in our form or send an email to concierge@morrowgoods.com to reserve a private appointment.</p>
+            <p>Select 'Bespoke Interior Consultation' in our form or send an email to concierge@morrowgoods.com to
+              reserve a private appointment.</p>
           </div>
           <div class="faq-item">
             <h5>What is your return & exchange policy?</h5>
-            <p>We provide a 30-day effortless return window for all standard products. Customized bespoke items are tailored to your specifications.</p>
+            <p>We provide a 30-day effortless return window for all standard products. Customized bespoke items are
+              tailored to your specifications.</p>
           </div>
         </div>
       </div>
@@ -1851,91 +2251,94 @@
 
     document.querySelectorAll('[data-go]').forEach((btn) => {
       btn.addEventListener('click', () => showView(btn.dataset.go));
-    });
-
-    document.querySelectorAll('[data-view-link]').forEach((link) => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        showView(link.dataset.viewLink);
+      document.querySelectorAll('[data-go]').forEach((button) => {
+        button.addEventListener('click', () => showView(button.dataset.go));
       });
-    });
-    window.addEventListener('hashchange', () => {
-      const name = location.hash.slice(1);
-      if (views.some((view) => view.id === name)) showView(name);
-    });
 
-    const initialView = location.hash.slice(1);
-    if (views.some((view) => view.id === initialView)) showView(initialView);
-
-    document.querySelector('#contact-form').addEventListener('submit', (event) => {
-      event.preventDefault();
-      document.querySelector('#form-status').textContent = 'Thank you. Our concierge will contact you shortly.';
-      event.currentTarget.reset();
-    });
-
-    /* Theme Switcher Logic */
-    const themeDots = document.querySelectorAll('[data-theme-btn]');
-    function setTheme(themeName) {
-      document.documentElement.setAttribute('data-theme', themeName);
-      localStorage.setItem('morrow-theme', themeName);
-      themeDots.forEach(dot => {
-        dot.classList.toggle('is-active', dot.dataset.themeBtn === themeName);
+      document.querySelectorAll('[data-view-link]').forEach((link) => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          showView(link.dataset.viewLink);
+        });
       });
-    }
+      window.addEventListener('hashchange', () => {
+        const name = location.hash.slice(1);
+        if (views.some((view) => view.id === name)) showView(name);
+      });
 
-    themeDots.forEach(dot => {
-      dot.addEventListener('click', () => setTheme(dot.dataset.themeBtn));
-    });
+      const initialView = location.hash.slice(1);
+      if (views.some((view) => view.id === initialView)) showView(initialView);
 
-    const savedTheme = localStorage.getItem('morrow-theme') || 'dark-gold';
-    setTheme(savedTheme);
+      document.querySelector('#contact-form').addEventListener('submit', (event) => {
+        event.preventDefault();
+        document.querySelector('#form-status').textContent = 'Thank you. Our concierge will contact you shortly.';
+        event.currentTarget.reset();
+      });
 
-    /* Concierge Live Chat Logic */
-    const chatTrigger = document.querySelector('#chat-trigger');
-    const chatWindow = document.querySelector('#chat-window');
-    const chatClose = document.querySelector('#chat-close');
-    const chatForm = document.querySelector('#chat-form');
-    const chatInput = document.querySelector('#chat-input');
-    const chatBody = document.querySelector('#chat-body');
-
-    function toggleChat() {
-      chatWindow.classList.toggle('is-open');
-      if (chatWindow.classList.contains('is-open')) {
-        chatInput.focus();
+      /* Theme Switcher Logic */
+      const themeDots = document.querySelectorAll('[data-theme-btn]');
+      function setTheme(themeName) {
+        document.documentElement.setAttribute('data-theme', themeName);
+        localStorage.setItem('morrow-theme', themeName);
+        themeDots.forEach(dot => {
+          dot.classList.toggle('is-active', dot.dataset.themeBtn === themeName);
+        });
       }
-    }
 
-    chatTrigger.addEventListener('click', toggleChat);
-    chatClose.addEventListener('click', toggleChat);
-
-    document.querySelectorAll('.open-chat-link').forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (!chatWindow.classList.contains('is-open')) toggleChat();
+      themeDots.forEach(dot => {
+        dot.addEventListener('click', () => setTheme(dot.dataset.themeBtn));
       });
-    });
 
-    chatForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const val = chatInput.value.trim();
-      if (!val) return;
+      const savedTheme = localStorage.getItem('morrow-theme') || 'dark-gold';
+      setTheme(savedTheme);
 
-      const userMsg = document.createElement('div');
-      userMsg.className = 'chat-msg user';
-      userMsg.textContent = val;
-      chatBody.appendChild(userMsg);
+      /* Concierge Live Chat Logic */
+      const chatTrigger = document.querySelector('#chat-trigger');
+      const chatWindow = document.querySelector('#chat-window');
+      const chatClose = document.querySelector('#chat-close');
+      const chatForm = document.querySelector('#chat-form');
+      const chatInput = document.querySelector('#chat-input');
+      const chatBody = document.querySelector('#chat-body');
 
-      chatInput.value = '';
-      chatBody.scrollTop = chatBody.scrollHeight;
+      function toggleChat() {
+        chatWindow.classList.toggle('is-open');
+        if (chatWindow.classList.contains('is-open')) {
+          chatInput.focus();
+        }
+      }
 
-      setTimeout(() => {
-        const botMsg = document.createElement('div');
-        botMsg.className = 'chat-msg bot';
-        botMsg.textContent = 'Thank you for your message. A dedicated concierge advisor has received your query and will reply momentously.';
-        chatBody.appendChild(botMsg);
+      chatTrigger.addEventListener('click', toggleChat);
+      chatClose.addEventListener('click', toggleChat);
+
+      document.querySelectorAll('.open-chat-link').forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          if (!chatWindow.classList.contains('is-open')) toggleChat();
+        });
+      });
+
+      chatForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const val = chatInput.value.trim();
+        if (!val) return;
+
+        const userMsg = document.createElement('div');
+        userMsg.className = 'chat-msg user';
+        userMsg.textContent = val;
+        chatBody.appendChild(userMsg);
+
+        chatInput.value = '';
         chatBody.scrollTop = chatBody.scrollHeight;
-      }, 900);
-    });
+
+        setTimeout(() => {
+          const botMsg = document.createElement('div');
+          botMsg.className = 'chat-msg bot';
+          botMsg.textContent = 'Thank you for your message. A dedicated concierge advisor has received your query and will reply momentously.';
+          chatBody.appendChild(botMsg);
+          chatBody.scrollTop = chatBody.scrollHeight;
+        }, 900);
+      });
   </script>
 </body>
+
 </html>
